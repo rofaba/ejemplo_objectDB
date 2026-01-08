@@ -1,5 +1,6 @@
 package org.example;
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -17,6 +18,9 @@ public class Game {
 
     @ManyToOne
     @JoinColumn(name = "duenio_id")
+
+    @ToString.Exclude // ESTO EVITA EL BUCLE QUE LANZA EL ERROR DE STACKOVERFLOW
+
     private User duenio;
 
 }
